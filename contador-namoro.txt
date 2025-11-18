@@ -1,4 +1,8 @@
-contador-namoro/
- ├── index.html
- ├── style.css
- └── script.js
+/site/
+   index.html
+   style.css
+   script.js
+   fundo-casal.jpg
+   foto1.jpg
+   foto2.jpg
+   foto3.jpg
