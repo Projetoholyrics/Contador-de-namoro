@@ -1,60 +1,39 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    color: white;
+.timeline-momentos {
+    margin-top: 80px;
+    padding: 40px 20px;
     text-align: center;
-    overflow-x: hidden;
-    background-image: url("https://github.com/Projetoholyrics/Contador-de-namoro/blob/main/Imagem%20do%20WhatsApp%20de%202025-11-01%20%C3%A0(s)%2022.16.41_acc35c0d.jpg?raw=true");
-    background-size: cover;
-    background-position: center;
 }
 
-/* camada escura para destacar texto */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    z-index: -1;
+.titulo-timeline {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 162, 255, 0.8);
 }
 
-.title {
-    font-size: 3rem;
-    margin-top: 40px;
-    animation: descer 1.5s ease-out;
-}
-
-.contador {
-    font-size: 2.2rem;
-    margin-top: 15px;
-    animation: descer 2s ease-out;
-}
-
-/* Galeria */
-.galeria {
-    margin-top: 40px;
+.linha-do-tempo {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
 }
 
-.foto {
-    width: 240px;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 15px;
-    border: 3px solid white;
-    animation: descer 2.5s ease-out;
+.item-timeline {
+    width: 90%;
+    max-width: 420px;
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    transition: all 0.8s ease-out;
 }
 
-/* Animação */
-@keyframes descer {
-    from {
-        transform: translateY(-60px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.item-timeline.visivel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.foto-timeline {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 162, 255, 0.6);
 }

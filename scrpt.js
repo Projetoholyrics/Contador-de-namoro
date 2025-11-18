@@ -1,26 +1,45 @@
-function calcularTempo() {
-    const inicio = new Date("2024-08-28");
-    const hoje = new Date();
+// Abrir portal
+const heart = document.getElementById("enterPortal");
+const welcome = document.getElementById("welcomeScreen");
+const main = document.getElementById("mainContent");
 
-    let anos = hoje.getFullYear() - inicio.getFullYear();
-    let meses = hoje.getMonth() - inicio.getMonth();
-    let dias = hoje.getDate() - inicio.getDate();
+// Se clicar no coração ou no texto
+document.querySelector(".clique-text").onclick = openPortal;
+heart.onclick = openPortal;
 
-    if (dias < 0) {
-        meses--;
-        const diasMesAnterior = new Date(hoje.getFullYear(), hoje.getMonth(), 0).getDate();
-        dias += diasMesAnterior;
-    }
+function openPortal() {
+    heart.classList.add("portalEffect");
+    welcome.style.transition = "1.5s";
 
-    if (meses < 0) {
-        anos--;
-        meses += 12;
-    }
+    setTimeout(() => {
+        welcome.style.opacity = "0";
+    }, 800);
 
-    document.getElementById("anos").textContent = `${anos} anos juntos`;
-    document.getElementById("meses").textContent = `${meses} meses`;
-    document.getElementById("dias").textContent = `${dias} dias`;
+    setTimeout(() => {
+        welcome.style.display = "none";
+        main.classList.remove("hidden");
+    }, 1500);
 }
 
-calcularTempo();
-setInterval(calcularTempo, 1000);
+// Fotos aparecem com zoom quando rolar
+const fotos = document.querySelectorAll(".foto");
+
+function mostrarFotos() {
+    fotos.forEach(f => {
+        const rect = f.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            f.classList.add("show");
+        }
+    });
+}
+
+window.addEventListener("scroll", mostrarFotos);
+const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+            entrada.target.classList.add("visivel");
+        }
+    });
+});
+
+document.querySelectorAll(".item-timeline").forEach((el) => observador.observe(el));
