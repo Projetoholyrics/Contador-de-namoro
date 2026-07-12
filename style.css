@@ -1,107 +1,39 @@
 .timeline-momentos {
-    padding: 100px 20px;
-    position: relative;
+    margin-top: 80px;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.timeline-momentos::before{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:0;
-    transform:translateX(-50%);
-    width:4px;
-    height:100%;
-    background:linear-gradient(
-        to bottom,
-        transparent,
-        #00c8ff,
-        #5fd9ff,
-        transparent
-    );
-    box-shadow:0 0 20px #00c8ff;
+.titulo-timeline {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 162, 255, 0.8);
 }
 
-.titulo-timeline{
-
-    font-size:40px;
-    color:white;
-    margin-bottom:70px;
-
-    font-family:"Playfair Display", serif;
-
-    text-shadow:
-    0 0 15px #00bfff,
-    0 0 35px #00bfff;
-
+.linha-do-tempo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
 }
 
-.linha-do-tempo{
-
-    display:flex;
-    flex-direction:column;
-    gap:80px;
-
-    align-items:center;
-
+.item-timeline {
+    width: 90%;
+    max-width: 420px;
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    transition: all 0.8s ease-out;
 }
 
-.item-timeline{
-
-    position:relative;
-
-    width:90%;
-    max-width:650px;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.15);
-
-    border-radius:25px;
-
-    padding:25px;
-
-    box-shadow:
-    0 10px 40px rgba(0,0,0,.45);
-
-    opacity:0;
-
-    transform:translateY(80px);
-
-    transition:1s;
-
+.item-timeline.visivel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
-.item-timeline.visivel{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-.item-timeline:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:
-    0 15px 50px rgba(0,191,255,.4);
-
-}
-
-.foto-timeline{
-
-    width:100%;
-
-    border-radius:18px;
-
-    transition:.6s;
-
-}
-
-.foto-timeline:hover{
-
-    transform:scale(1.05);
-
+.foto-timeline {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 162, 255, 0.6);
 }
